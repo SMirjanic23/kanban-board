@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Kanban Board</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="kanban-header">
+        <h1>Mini Kanban Board</h1>
+        <div class="controls">
+          <button class="btn-reset" id="resetBtn">Reset</button>
+        </div>
+      </header>
+
+      <div class="kanban-board" id="board"></div>
+    </div>
+
+    <template id="kanban-column">
+      <div class="column">
+        <div class="column-header">
+          <h2 class="column-title"></h2>
+          <span class="column-count"></span>
+        </div>
+        <button class="add-card">+ Add Card</button>
+        <div class="cards-container"></div>
+      </div>
+    </template>
+
+    <template id="kanban-item">
+      <div class="card" draggable="true" data-card-id="" data-column-id="">
+        <span class="card-title"></span>
+        <div class="card-actions">
+          <button class="action-btn" title="Edit card">✏️</button>
+          <button class="action-btn" title="Delete card">🗑️</button>
+        </div>
+      </div>
+    </template>
+
+    <div id="card-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Add New Card</h2>
+        <input type="text" id="card-input" placeholder="Enter card title" />
+        <div class="modal-actions">
+          <button id="save-card">Save</button>
+          <button id="cancel-card">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/src/scripts/script.js" type="module"></script>
+  </body>
+</html>
